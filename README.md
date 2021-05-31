@@ -1,5 +1,38 @@
 # DEEL BACKEND TASK
 
+It's been a while since I work with express and js on the backend. 
+For the purpose of the task I use JS, but in the real world I would consider using Typescript.
+
+done:
+- implementation of the tasks 1-6
+- refactoring to services for better readability and testability
+- Middleware for catching error
+- tests added:
+```
+npm test
+```
+
+todos: 
+- implement task 7
+- Consider Typescript
+- DI container. It adds a new level of abstraction(con), but adds structure and improves testability. See a glimpse of it in the  `service` folder. 
+- `getProfile` middleware mutates Request object. For a larger app it's an error prone approach, even though it's in a spirit of Express. Consider refactoring it to a service:
+```js
+const {client} = ClientService.getClientFromRequest(req) 
+// Note: method could throw error. It's OK, we have middleware for that 
+```
+- Prepare for production:
+    - Refactor authentication. (?) JWT / cookies  
+    - move from sqlite
+    - add logging
+    - add a mechanism to restart the server(like Docker)
+    - add script to package.json to apply migration
+
+nice to have:
+- Add regex match to scripts/seedDb.js as a safety net
+- add a before-commit hook to apply linter
+- graphql instead of REST if needed
+- fix npm audit
   
 
 💫 Welcome! 🎉
